@@ -1,0 +1,36 @@
+Atividade 1
+
+create database db_rh;
+
+use db_rh;
+
+create table db_funcionarios(
+	id bigint (5) auto_increment,
+    Nome varchar(30) not null,
+    Idade int(3) not null,
+    Telefone varchar(9) not null,
+    Função varchar(20) not null,
+    Salario decimal(10,2),
+    
+    primary key(id)
+);
+
+insert into db_funcionarios(Nome, Idade, Telefone, Função, Salario) 
+values("Marcio", 30, "5332 5658", "Administrativo", 2500.00);
+
+insert into db_funcionarios(Nome, Idade, Telefone, Função, Salario) 
+values("Ana", 20, "5232 5458", "Administrativo", 2800.00);
+
+insert into db_funcionarios(Nome, Idade, Telefone, Função, Salario) 
+values("Carlos", 40, "9232 5458", "Gerente", 8000.00);
+
+insert into db_funcionarios(Nome, Idade, Telefone, Função, Salario) 
+values("Lucas", 18, "9352 5458", "Estagiario", 900.00);
+
+insert into db_funcionarios(Nome, Idade, Telefone, Função, Salario) 
+values("Roberta", 22, "9952 5858", "Assistente", 1200.00);
+
+select * from db_funcionarios where Salario < 2000.00;
+
+select * from db_funcionarios where Salario > 2000.00;
+
