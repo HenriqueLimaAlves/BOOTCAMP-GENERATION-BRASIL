@@ -34,3 +34,6 @@ select * from db_funcionarios where Salario < 2000.00;
 
 select * from db_funcionarios where Salario > 2000.00;
 
+update db_funcionarios
+set Nome = "Wellington" 
+where id = 4;
