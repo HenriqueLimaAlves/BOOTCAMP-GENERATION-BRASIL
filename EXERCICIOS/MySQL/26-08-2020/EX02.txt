@@ -1,0 +1,51 @@
+Atividade 02
+
+use db_diversos;
+
+create table petshop(
+	id bigint auto_increment,
+    nome varchar(30) not null,
+    raça varchar(30) not null,
+    peso decimal(2,2) not null,
+    rg varchar(20) not null,
+    porte varchar(20)not null,
+    castrado boolean,
+    
+    primary key(id)
+);
+
+insert into petshop(nome, raça, peso, rg, porte, castrado)
+values("Mel", "Cachorro", 11, "5588d", "Medio", 0);
+
+insert into petshop(nome, raça, peso, rg, porte, castrado)
+values("Doge", "Cachorro", 18, "5588d", "Grande", 1);
+
+insert into petshop(nome, raça, peso, rg, porte, castrado)
+values("Retro", "gato", 2, "5588d", "pequeno", 1);
+
+insert into petshop(nome, raça, peso, rg, porte, castrado)
+values("Joao", "cavalo", 500 , "5588d", "grande", 0);
+
+insert into petshop(nome, raça, peso, rg, porte, castrado)
+values("Mococa", "Vaca", 300 , "5588d", "grande", 0);
+
+insert into petshop(nome, raça, peso, rg, porte, castrado)
+values("pepa", "porco", 12 , "5588d", "medio", 0);
+
+insert into petshop(nome, raça, peso, rg, porte, castrado)
+values("Bruce", "cachorro", 8 , "5588d", "medio", 0);
+
+insert into petshop(nome, raça, peso, rg, porte, castrado)
+values("Damiao", "cachorro", 8 , "5588d", "medio", 0);
+
+insert into petshop(nome, raça, peso, rg, porte, castrado)
+values("bacaco", "cachorro", 15 , "5588d", "grande", 0);
+
+select id, nome, raça, rg, porte, castrado from petshop
+where peso >10; 
+
+select id, nome, raça, rg, porte, castrado from petshop
+where peso <10
+
+select * from petshop
+where peso between 10 and 30; 
