@@ -1,0 +1,38 @@
+create database db_escola;
+
+use db_escola;
+
+create table db_alunos(
+    id bigint(5) auto_increment,
+    nome varchar(30) not null,
+    idade int(3) not null,
+    serie varchar(30) not null,
+    matriculado boolean,
+    ra bigint(5) not null,
+    nota decimal(2,2) not null,
+    
+    primary key(id)
+);
+
+insert into db_alunos(nome, idade, serie, matriculado, ra, nota)
+values("Marcelo", 14, "Segundo Ano", 1, 55874, 5);
+
+insert into db_alunos(nome, idade, serie, matriculado, ra, nota)
+values("Thiago", 16, "Terceiro Ano", 1, 55880, 7);
+
+insert into db_alunos(nome, idade, serie, matriculado, ra, nota)
+values("Pedro", 16, "Terceiro Ano", 1, 56880, 10);
+
+insert into db_alunos(nome, idade, serie, matriculado, ra, nota)
+values("Elias", 14, "Segundo Ano", 0, 26880, 5)
+
+insert into db_alunos(nome, idade, serie, matriculado, ra, nota)
+values("Minato", 14, "Segundo Ano", 0, 356880, 8)
+
+select * from db_alunos where nota > 7;
+
+select * from db_alunos where nota > 7;
+
+update db_alunos 
+set nota = 9.5
+where id = 5; 
