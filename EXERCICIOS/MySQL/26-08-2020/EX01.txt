@@ -1,0 +1,59 @@
+Atividade 01
+
+create database db_diversos;
+
+use db_diversos;
+
+create table escola(
+	id bigint auto_increment,
+    nome varchar(30) not null,
+    idade int(3) not null,
+    matriculado boolean,
+    ra varchar(8),
+    telefone varchar(11),
+    nota double(2,2),
+    
+    primary key(id)
+);
+
+alter table escola 
+drop column nota
+
+alter table escola
+add column nota int(2)
+
+insert into escola(nome, idade, matriculado, ra, telefone, nota) 
+value("Ricardo", 15, 1, "d5547r", "94689 5523", 8);
+
+insert into escola(nome, idade, matriculado, ra, telefone, nota) 
+value("Marcelo", 22, 1, "d5547r", "94689 5523", 8);
+
+insert into escola(nome, idade, matriculado, ra, telefone, nota) 
+value("Rodney", 19, 1, "d5547r", "94689 5523", 8);
+
+insert into escola(nome, idade, matriculado, ra, telefone, nota) 
+value("Wagner", 17, 1, "d5547r", "94689 5523", 8);
+
+insert into escola(nome, idade, matriculado, ra, telefone, nota) 
+value("matheus", 25, 1, "d5547r", "94689 5523", 8);
+
+insert into escola(nome, idade, matriculado, ra, telefone, nota) 
+value("Rodrigo", 23, 1, "d5547r", "94689 5523", 8);
+
+insert into escola(nome, idade, matriculado, ra, telefone, nota) 
+value("Cleiton", 22, 1, "d5547r", "94689 5523", 8);
+
+insert into escola(nome, idade, matriculado, ra, telefone, nota) 
+value("Daniel", 17, 1, "d5547r", "94689 5523", 8);
+
+insert into escola(nome, idade, matriculado, ra, telefone, nota) 
+value("Vagner", 15, 1, "d5547r", "94689 5523", 8);
+
+select id, nome, matriculado, ra, telefone, nota from 
+escola where idade > 18;
+
+select id, nome, matriculado, ra, telefone, nota from 
+escola where idade < 18;
+
+select * from escola 
+where idade between 20 and 25;
