@@ -6,7 +6,7 @@ create table petshop(
 	id bigint auto_increment,
     nome varchar(30) not null,
     raça varchar(30) not null,
-    peso decimal(2,2) not null,
+    peso int(3) not null,
     rg varchar(20) not null,
     porte varchar(20)not null,
     castrado boolean,

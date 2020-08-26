@@ -1,0 +1,58 @@
+Atividade 03
+
+use db_diversos;
+
+create table varejo(
+	id bigint(5) auto_increment,
+    nome varchar(30) not null,
+    preco decimal(10,2) not null,
+    categoria varchar(30) not null,
+    codigo int(20) not null,
+    disponivel boolean,
+    
+    primary key(id)
+);
+
+insert into varejo(nome, preco, categoria, codigo, disponivel)
+values("Cama", 1000, "Quarto", 5588, 1);
+
+insert into varejo(nome, preco, categoria, codigo, disponivel)
+values("Guarda-roupas", 1200.50, "Quarto", 5578, 1);
+
+insert into varejo(nome, preco, categoria, codigo, disponivel)
+values("sofá", 499.99, "sala", 5575, 0);
+
+insert into varejo(nome, preco, categoria, codigo, disponivel)
+values("torneira", 69.99, "banheiro", 5572, 1);
+
+insert into varejo(nome, preco, categoria, codigo, disponivel)
+values("TV", 3000, "sala", 55772, 1);
+
+insert into varejo(nome, preco, categoria, codigo, disponivel)
+values("fogão", 780.20, "cozinha", 44887, 1);
+
+insert into varejo(nome, preco, categoria, codigo, disponivel)
+values("geladeira", 1.480, "cozinha", 84887, 1);
+
+insert into varejo(nome, preco, categoria, codigo, disponivel)
+values("armario", 1500, "cozinha", 84887, 1);
+
+insert into varejo(nome, preco, categoria, codigo, disponivel)
+values("geladeira", 1400, "cozinha", 84887, 1);
+
+insert into varejo(nome, preco, categoria, codigo, disponivel)
+values("computador", 4500, "sala", 84887, 1);
+
+update varejo 
+set preco = 1480
+where id = 7;
+
+select * from varejo
+where nome like "a%"
+
+select id, nome, preco, codigo, disponivel from varejo
+where categoria like "cozinha"
+
+select id, nome, codigo, disponivel from varejo
+where categoria like "cozinha"
+and preco between 1000 and 1500; 
