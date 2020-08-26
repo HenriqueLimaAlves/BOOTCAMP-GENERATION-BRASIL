@@ -1,0 +1,50 @@
+Atividade 02 
+
+create database db_ecommerce;
+
+use db_ecommerce;
+
+create table db_produtos(
+	id bigint(5) auto_increment,
+    nome varchar(30) not null,
+    disponivel boolean,
+    quantidade bigint(5) not null, 
+    preco decimal(10,2) not null,
+    codigo int(5) not null,
+    
+    primary key(id)
+);
+
+insert into db_produtos(nome, disponivel, quantidade, preco, codigo) 
+values("TV", 1, 50, 2500, 5558);
+
+insert into db_produtos(nome, disponivel, quantidade, preco, codigo) 
+values("Iphone", 0, 50, 8000, 5559);
+
+insert into db_produtos(nome, disponivel, quantidade, preco, codigo) 
+values("PS4", 0, 50, 2500, 5560);
+
+insert into db_produtos(nome, disponivel, quantidade, preco, codigo) 
+values("Sofá", 0, 50, 800, 5570);
+
+insert into db_produtos(nome, disponivel, quantidade, preco, codigo) 
+values("Geladeira", 1, 50, 1200, 5571);
+
+insert into db_produtos(nome, disponivel, quantidade, preco, codigo) 
+values("Cafeteira", 1, 20, 500, 5581);
+
+select * from db_produtos where preco > 500; 
+
+select * from db_produtos where preco < 500;
+
+update db_produtos 
+set quantidade = 0
+where id = 2;
+
+update db_produtos 
+set quantidade = 0
+where id = 3;
+
+update db_produtos 
+set quantidade = 0
+where id = 4;
