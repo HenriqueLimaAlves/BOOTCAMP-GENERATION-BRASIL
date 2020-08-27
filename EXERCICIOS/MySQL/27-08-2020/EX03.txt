@@ -1,0 +1,81 @@
+Atividade 03
+
+create database db_farmacia_do_bem;
+
+use db_farmacia_do_bem;
+
+create table tb_categoria(
+	id_cat bigint auto_increment,
+    tipo varchar(30) not null,
+    validade date not null,
+    prescricao boolean,
+    
+    primary key(id_cat)
+);
+
+create table tb_produto(
+	id_prod bigint auto_increment,
+    nome varchar(30) not null,
+    preco decimal(10,2) not null,
+    fabricacao date not null,
+    id_cat bigint,
+    
+    primary key(id_prod),
+    foreign key(id_cat) references tb_categoria(id_cat)
+);
+
+--inserts tb_categoria
+
+insert into tb_categoria(tipo, validade, prescricao)
+values("Cosmetico", '2022-11-26', 0);
+
+insert into tb_categoria(tipo, validade, prescricao)
+values("Tarja-preta", '2022-11-26', 1);
+
+insert into tb_categoria(tipo, validade, prescricao)
+values("Analgesico", '2022-11-26', 0);
+
+--inserts tb_produto
+
+insert into tb_produto(nome, preco, fabricacao, id_cat)
+values("Paracetamol", 22.99, '2020/08/27', 3);
+
+insert into tb_produto(nome, preco, fabricacao, id_cat)
+values("Dipirona", 10.99, '2020/08/27', 3);
+
+insert into tb_produto(nome, preco, fabricacao, id_cat)
+values("Tinta p/ cabelo", 70.99, '2020/08/27', 1);
+
+insert into tb_produto(nome, preco, fabricacao, id_cat)
+values("hidratante", 60.99, '2020/08/27', 1);
+
+insert into tb_produto(nome, preco, fabricacao, id_cat)
+values("Alprazolam", 266.99, '2020/08/27', 2);
+
+insert into tb_produto(nome, preco, fabricacao, id_cat)
+values("Lorazepam", 366.99, '2020/08/27', 2);
+
+select * from tb_produto
+where preco > 50.00;
+
+select * from tb_produto
+where preco between 3 and 60;
+
+select * from tb_produto
+where nome like "%b%";
+
+select * 
+from tb_produto
+inner join tb_categoria
+on tb_produto.id_cat = tb_categoria.id_cat
+order by tb_categoria.tipo asc;
+
+select * 
+from tb_produto
+inner join tb_categoria
+on tb_produto.id_cat = tb_categoria.id_cat
+where tb_categoria.tipo = "Analgesico"
+order by tb_produto.nome asc;
+
+
+
