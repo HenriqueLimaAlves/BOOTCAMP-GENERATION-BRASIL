@@ -1,0 +1,86 @@
+Atividade 02
+
+create database db_pizzaria_legal;
+
+use  db_pizzaria_legal;
+
+create table tb_categoria(
+	id_cat bigint(5) auto_increment,
+    tipo varchar(30) not null,
+	
+   primary key(id_cat)
+)
+
+create table tb_pizza(
+	id_pizza bigint(5) auto_increment,
+    nome varchar(30) not null,
+	preco decimal(10,2) not null,
+    id_cat bigint,
+    
+   primary key(id_pizza),
+   foreign key(id_cat) references tb_categoria(id_cat)
+)
+
+--inserts tb_categoria
+
+insert into tb_categoria(tipo)
+values("Doce");
+
+insert into tb_categoria(tipo)
+values("Salgada");
+
+--inserts tb_pizza
+
+insert into tb_pizza(nome, preco)
+values("Calabresa", 31.99);
+
+update tb_pizza 
+set id_cat = 2
+where id_pizza = 1
+
+insert into tb_pizza(nome, preco, id_cat)
+values("Mussarela", 31.99, 2);
+
+insert into tb_pizza(nome, preco, id_cat)
+values("Chocolate", 41.99, 1);
+
+insert into tb_pizza(nome, preco, id_cat)
+values("Nutella", 41.99, 1);
+
+insert into tb_pizza(nome, preco, id_cat)
+values("Peperoni", 26.99, 2);
+
+insert into tb_pizza(nome, preco, id_cat)
+values("Frango c/ Catupiry", 26.99, 2);
+
+insert into tb_pizza(nome, preco, id_cat)
+values("Morango com Chocolate", 61.99, 1);
+
+insert into tb_pizza(nome, preco, id_cat)
+values("Coco ralado", 37.99, 1);
+
+select * from tb_pizza
+where preco > 45.00;
+
+select * from tb_pizza
+where preco between 29.00 and 60.00;
+
+select * from tb_pizza
+where nome like "%c%"
+
+select *
+from tb_pizza 
+inner join tb_categoria 
+
+select *
+from tb_pizza 
+inner join tb_categoria 
+on tb_pizza.id_cat = tb_categoria.id_cat
+order by tb_pizza.id_cat asc;
+
+select *
+from tb_pizza 
+inner join tb_categoria 
+on tb_pizza.id_cat = tb_categoria.id_cat
+where tb_categoria.tipo = "Doce"
+order by tb_pizza.nome asc;
