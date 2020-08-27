@@ -1,0 +1,90 @@
+Atividade 01
+
+create database db_generation_game_online;
+
+use db_generation_game_online;
+
+create table tb_personagem(
+	id_char bigint(5) auto_increment,
+    nome varchar(30) not null,
+    altura decimal(10,2) not null,
+    idade int(3) not null,
+    ATK decimal(10,2) not null,
+    DEF decimal(10,2) not null,
+    id_class bigint,
+    
+    primary key(id_char),
+    foreign key (id_class) references tb_classe(id_class)
+);
+
+create table tb_classe(
+	id_class bigint(5) auto_increment,
+    nome varchar(30) not null,
+    atributo_base varchar(30) not null,
+    habilidade varchar(30) not null,
+    
+    primary key(id_class)
+);
+
+-- inserts tb_personagem
+insert into tb_personagem(nome, altura, idade, ATK, DEF, id_class)
+values("GodRick", 2.05, 22, 2000, 5000, 2);
+
+insert into tb_personagem(nome, altura, idade, ATK, DEF, id_class)
+values("Arthur", 1.80, 30, 3000, 3000, 2);
+
+insert into tb_personagem(nome, altura, idade, ATK, DEF, id_class)
+values("John", 1.80, 30, 3000, 3000, 3);
+
+insert into tb_personagem(nome, altura, idade, ATK, DEF, id_class)
+values("Henbal", 1.80, 30, 3000, 3000, 3);
+
+insert into tb_personagem(nome, altura, idade, ATK, DEF, id_class)
+values("Norgrad", 1.80, 30, 1000, 500, 1);
+
+insert into tb_personagem(nome, altura, idade, ATK, DEF, id_class)
+values("Anubis", 1.80, 30, 1000, 500, 1);
+
+insert into tb_personagem(nome, altura, idade, ATK, DEF, id_class)
+values("Ohleoc", 1.80, 30, 1000, 500, 1);
+
+insert into tb_personagem(nome, altura, idade, ATK, DEF, id_class)
+values("Martin", 1.80, 30, 1230, 1250, 3);
+
+--inserts tb_classe
+
+insert into tb_classe(nome, atributo_base, habilidade)
+values("Arqueiro", "DEX", "Flecha congelante" );
+
+insert into tb_classe(nome, atributo_base, habilidade)
+values("Guerreiro", "FOR", "Corte com a espada" );
+
+insert into tb_classe(nome, atributo_base, habilidade)
+values("Mago", "INT", "Bola de fogo" );
+
+select * from tb_personagem
+where ATK > 2000;
+
+select * from tb_personagem
+where DEF between 1000 and 2000;
+
+select * from tb_personagem
+where nome like "%c%";
+
+select *
+from tb_personagem
+inner join tb_classe
+on tb_personagem.id_class = tb_classe.id_class
+order by tb_classe.nome asc;
+
+select *
+from tb_personagem
+inner join tb_classe
+on tb_personagem.id_class = tb_classe.id_class
+where tb_classe.nome = "Arqueiro"
+order by tb_personagem.nome asc;
+
+
+
+
+
